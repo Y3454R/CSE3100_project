@@ -1,4 +1,7 @@
-<?php // ref: https://www.w3schools.com/css/css_website_layout.asp ?>
+<?php
+// ref: https://www.w3schools.com/css/css_website_layout.asp
+// "read more js" ref: https://www.youtube.com/watch?v=QEZVTvtvDt4 
+?>
 
 <!DOCTYPE html>
 <html>
