@@ -12,7 +12,7 @@ require 'handlers/login_handler.php';
     <title>Food Buzz</title>
     <link rel ="stylesheet" type="text/css" href="css/introStyle.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <script src="script/introScript.js"></script>
+    <script src="script/indexScript.js"></script>
 </head>
 
 <body>
