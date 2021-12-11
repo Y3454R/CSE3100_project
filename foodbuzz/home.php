@@ -1,24 +1,6 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-<!-- css link -->
-<link rel="stylesheet" href="css/homeStyle.css">
-</head>
-
-<body>
-
-<div class="header">
-  <h1>Food Buzz</h1>
-  <pre style= "font-family:verdana; font-size: 20px;">Plan!    Eat!    Share!</pre>
-</div>
-
-<div class="topnav" id="navbar"> <!-- id for sticky navigation bar -->
-  <a href="#">Buzz</a>
-  <a href="#">Search</a>
-  <a href="#">My Buzz</a>
-  <a href="handlers/logout.php" style="float:right">Exit</a>
-</div>
+<?php
+include ("header.php");
+?>
 
 <div class="row">
 
@@ -68,6 +50,11 @@
  </div>
     
   <div class="rightcolumn">
+    <div class="card">
+      <h2>Add Review</h2>
+      <div class="fakeimg"><p>Image</p></div>
+      
+    </div>
     <div class="card">
       <h2>Top Menu</h2>
       <div class="fakeimg" style="height:100px;">Image</div>

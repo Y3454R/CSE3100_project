@@ -8,45 +8,30 @@ if(isset($_SESSION['username'])){
 
 }
 else {
-    header("Location: register.php");
+    header("Location: index.php");
 }
 
 ?>
 
+<!DOCTYPE html>
 <html>
 
 <head>
-    <title>Welcome to Myfeed</title>
-    <!-- Javascript -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <script src="assets/js/bootstrap.js"></script>
-    <!-- CSS -->
-    
-    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  <!-- my change-->
+<!-- css link -->
+<link rel="stylesheet" href="css/homeStyle.css">
 </head>
 
 <body>
 
-<div class = "top_bar">
-
-    <div class = "logo">
-        <a href="index.php">Myfeed</a>
-    </div>
-
-    <nav>
-        <a href="<?php echo $userLoggedIn; ?>"> <?php echo $user['first_name'] ?> </i> </a>
-        <a href="index.php"> <i class="fa fa-home" > </i> </a>
-        <a href="#"> <i class="fa fa-envelope" > </i> </a>
-        <a href="#"> <i class="fa fa-bell-o" > </i> </a>
-        <a href="#"> <i class="fa fa-users" > </i> </a>
-        <a href="#"> <i class="fa fa-cog" ></i> </a>
-        <a href="includes/handlers/logout.php"> <i class="fa fa-sign-out"></i> </a>
-        
-    </nav>
-
+<div class="header">
+  <h1>Food Buzz</h1>
+  <pre style= "font-family:verdana; font-size: 20px;">Plan!    Eat!    Share!</pre>
 </div>
 
-<div class="wrapper">
+<div class="topnav" id="navbar"> <!-- id for sticky navigation bar -->
+  <a href="home.php">Buzz</a>
+  <a href="#">Search</a>
+  <a href="mybuzz.php">My Buzz</a>
+  <a href="handlers/logout.php" style="float:right">Exit</a>
+</div>
 
