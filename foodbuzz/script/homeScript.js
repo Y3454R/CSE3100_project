@@ -1,4 +1,4 @@
-
+/* ref: https://youtu.be/QEZVTvtvDt4 */
 let noOfChars = 150;
 let contents = document.querySelectorAll(".content");
 contents.forEach(content => {
