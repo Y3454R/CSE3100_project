@@ -6,6 +6,8 @@ include ("header.php");
     <p>this is my buzz</p>
 </div>
 
+<!-- JS script --> 
+<script src="script/homeScript.js"></script>
 
 </body>
 </html>
