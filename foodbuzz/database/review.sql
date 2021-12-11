@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 11, 2021 at 02:36 PM
+-- Generation Time: Dec 11, 2021 at 02:42 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.3.16
 
@@ -38,7 +38,7 @@ CREATE TABLE `review` (
   `upvote` int(100) NOT NULL,
   `downvote` int(100) NOT NULL,
   `comment_count` int(100) NOT NULL,
-  `location` text DEFAULT NULL
+  `review_time` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
