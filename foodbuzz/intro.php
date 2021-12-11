@@ -61,7 +61,7 @@ if(isset($_POST['register_button'])) {
                     if(in_array("Email or password is incorrect!<br>", $error_array)) echo "Email or password is incorrect!<br>"
                 ?>
 
-                <a href="#" id="signup" class ="signup">Join Myfeed</a>
+                <a href="#" id="signup" class ="signup">Join Food Buzz</a>
 
             </form>
         
