@@ -13,7 +13,7 @@
   <pre style= "font-family:verdana; font-size: 20px;">Plan!    Eat!    Share!</pre>
 </div>
 
-<div class="topnav">
+<div class="topnav" id="navbar"> <!-- id for sticky navigation bar -->
   <a href="#">Buzz</a>
   <a href="#">Search</a>
   <a href="#">My Buzz</a>
@@ -69,12 +69,14 @@
     
   <div class="rightcolumn">
     <div class="card">
-      <h2>Bucket List</h2>
+      <h2>Top Menu</h2>
       <div class="fakeimg" style="height:100px;">Image</div>
-      <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
+      <div class="fakeimg" style="height:100px;">Image</div>
+      <div class="fakeimg" style="height:100px;">Image</div>
+      <div class="fakeimg" style="height:100px;">Image</div>
     </div>
     <div class="card">
-      <h5>Top Menu</h5>
+      <h2>Bucket List</h2>
       <div class="fakeimg"><p>Image</p></div>
       <div class="fakeimg"><p>Image</p></div>
       <div class="fakeimg"><p>Image</p></div>
@@ -88,6 +90,7 @@
 
 <!-- JS script --> 
 <script src="script/homeScript.js"></script>
+
 
 </body>
 

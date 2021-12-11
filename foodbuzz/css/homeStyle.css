@@ -45,6 +45,7 @@ body {
 }
 
 /* Create two unequal columns that floats next to each other */
+
 /* Left column */
 .leftcolumn {   
     float: left;
@@ -134,4 +135,12 @@ body {
 
 .hide {
     display: none;
+}
+
+/* for sticky nav bar */
+.sticky {
+    position: fixed;
+    top: 0;
+    padding-right: 10px; /*to stop overflow the exit button*/
+    width: 100%;
 }

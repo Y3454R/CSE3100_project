@@ -1,4 +1,7 @@
-/* ref: https://youtu.be/QEZVTvtvDt4 */
+/*
+read more, read less button
+ref: https://youtu.be/QEZVTvtvDt4
+*/
 let noOfChars = 150;
 let contents = document.querySelectorAll(".content");
 contents.forEach(content => {
@@ -20,3 +23,20 @@ function readMore(btn) {
   btn.textContent == "Read More" ? btn.textContent = "Read Less" : btn.textContent = "Read More";
 }
 
+/*
+sticky navigation bar
+ref: https://www.w3schools.com/howto/howto_js_navbar_sticky.asp
+*/
+
+window.onscroll = function() {myStickyFunction()};
+
+var navbar = document.getElementById("navbar");
+var sticky = navbar.offsetTop;
+
+function myStickyFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
