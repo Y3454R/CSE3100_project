@@ -1,8 +1,8 @@
 <?php
 
 require 'config/config.php';
-require 'includes/form_handlers/register_handler.php';
-require 'includes/form_handlers/login_handler.php';
+require 'handlers/register_handler.php';
+require 'handlers/login_handler.php';
 
 ?>
 
@@ -43,7 +43,7 @@ if(isset($_POST['register_button'])) {
 
         <div id="first">
         
-            <form action="intro.php" method="POST">
+            <form action="index.php" method="POST">
 
                 <input type="email" name="log_email" placeholder="Email"
                 value="<?php
@@ -70,7 +70,7 @@ if(isset($_POST['register_button'])) {
 
         <div id="second">
 
-            <form action="intro.php" method="POST">
+            <form action="index.php" method="POST">
                 <!-- first name -->
                 <input type="text" name="reg_fname" placeholder="First Name"
                 value="<?php

@@ -17,7 +17,7 @@
   <a href="#">Buzz</a>
   <a href="#">Search</a>
   <a href="#">My Buzz</a>
-  <a href="includes/handlers/logout.php" style="float:right">Exit</a>
+  <a href="handlers/logout.php" style="float:right">Exit</a>
 </div>
 
 <div class="row">

@@ -104,7 +104,7 @@ if(isset($_POST['register_button'])) {
             $check_username_query = mysqli_query($con, "SELECT username FROM users WHERE username='$username'");
         }
 
-        $profile_pic = "image/user_dp.jpg";
+        $profile_pic = "image/dp/user_dp.jpg";
 
         $list_count = 0;
 
