@@ -19,7 +19,7 @@ if(isset($_POST['login_button'])) {
         }
 
         $_SESSION['username'] = $username; //new session variable
-        header("Location: index.php");
+        header("Location: home.php");
         exit();
     }
     else {

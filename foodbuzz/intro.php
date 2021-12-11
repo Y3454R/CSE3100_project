@@ -9,7 +9,7 @@ require 'includes/form_handlers/login_handler.php';
 <html>
 
 <head>
-    <title>Welcome to Myfeed</title>
+    <title>Food Buzz</title>
     <link rel ="stylesheet" type="text/css" href="css/introStyle.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="script/introScript.js"></script>
@@ -43,7 +43,7 @@ if(isset($_POST['register_button'])) {
 
         <div id="first">
         
-            <form action="register.php" method="POST">
+            <form action="intro.php" method="POST">
 
                 <input type="email" name="log_email" placeholder="Email"
                 value="<?php
@@ -70,8 +70,8 @@ if(isset($_POST['register_button'])) {
 
         <div id="second">
 
-            <form action="register.php" method="POST">
-
+            <form action="intro.php" method="POST">
+                <!-- first name -->
                 <input type="text" name="reg_fname" placeholder="First Name"
                 value="<?php
                 if(isset($_SESSION['reg_fname'])) {
@@ -82,6 +82,7 @@ if(isset($_POST['register_button'])) {
                 <?php if(in_array("First name must be between 2 and 25 characters!<br>", $error_array))
                     echo "First name must be between 2 and 25 characters!<br>" ?>
 
+                <!-- last name -->
                 <input type="text" name="reg_lname" placeholder="Last Name"
                 value="<?php
                 if(isset($_SESSION['reg_lname'])) {
@@ -91,7 +92,19 @@ if(isset($_POST['register_button'])) {
                 <br>
                 <?php if(in_array("Last name must be between 2 and 25 characters!<br>", $error_array))
                     echo "Last name must be between 2 and 25 characters!<br>" ?>
-                
+
+                <!-- District -->
+                <input type="text" name="reg_dist" placeholder="District"
+                value="<?php
+                if(isset($_SESSION['reg_dist'])) {
+                    echo $_SESSION['reg_dist'];
+                    }
+                ?>" required>
+                <br>
+                <?php if(in_array("District can only contain English characters!<br>", $error_array))
+                    echo "District can only contain English characters!<br>" ?>
+
+                <!-- email -->
                 <input type="email" name="reg_email" placeholder="Email"
                 value="<?php
                 if(isset($_SESSION['reg_email'])) {
@@ -100,13 +113,6 @@ if(isset($_POST['register_button'])) {
                 ?>" required>
                 <br>
 
-                <input type="email" name="reg_email2" placeholder="Confirm Email"
-                value="<?php
-                if(isset($_SESSION['reg_email2'])) {
-                    echo $_SESSION['reg_email2'];
-                    }
-                ?>" required>
-                <br>
                 <?php if(in_array("Email already in use!<br>", $error_array))
                     echo "Email already in use!<br>" ?>
                 <?php if(in_array("Invalid email format!<br>", $error_array))
@@ -114,6 +120,7 @@ if(isset($_POST['register_button'])) {
                 <?php if(in_array("Emails don't match!<br>", $error_array))
                     echo "Emails don't match!<br>" ?>
 
+                <!-- password -->
                 <input type="password" name="reg_password" placeholder="Password" required>
                 <br>
                 <input type="password" name="reg_password2" placeholder="Confirm Password" required>

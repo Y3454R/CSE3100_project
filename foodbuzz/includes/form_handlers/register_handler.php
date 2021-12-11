@@ -3,8 +3,8 @@
 //Declaring variable to prevent errors
 $fname = ""; //first name
 $lname = ""; //last name
+$dist = ""; //area
 $em = ""; //email
-$em2 = ""; // email 2
 $password = ""; //password
 $password2 = ""; //password2
 $date = ""; //sign up date
@@ -25,6 +25,12 @@ if(isset($_POST['register_button'])) {
     $lname = str_replace(' ','', $lname); 
     $lname = ucfirst(strtolower($lname));
     $_SESSION['reg_lname'] = $lname;
+
+    //district
+    $dist = strip_tags($_POST['reg_dist']);
+    $dist = str_replace(' ', '', $dist);
+    $dist = ucfirst(strtolower($dist));
+    $_SESSION['reg_dist'] = $dist;
    
     //email
     $em = strip_tags($_POST['reg_email']);
@@ -32,38 +38,35 @@ if(isset($_POST['register_button'])) {
     //$em = ucfirst(strtolower($em)); //is this right? I remove it
     $_SESSION['reg_email'] = $em;
 
-    //email 2
-    $em2 = strip_tags($_POST['reg_email2']);
-    $em2 = str_replace(' ','', $em2); 
-   // $em2 = ucfirst(strtolower($em2));
-    $_SESSION['reg_email2'] = $em2;
-
     //password
     $password = strip_tags($_POST['reg_password']);
     $password2 = strip_tags($_POST['reg_password2']);
 
     $date = date("Y-m-d"); //Current date
 
-    if($em == $em2) {
-        //check if email is in valid format
-        if(filter_var($em, FILTER_VALIDATE_EMAIL)) {
-            $em = filter_var($em, FILTER_VALIDATE_EMAIL);
 
-            //check if email exist
-            $e_check = mysqli_query($con, "SELECT email FROM users WHERE email='$em'");
-            //count the number of rows returned
-            $num_rows = mysqli_num_rows($e_check);
-            if($num_rows > 0) {
-                array_push($error_array, "Email already in use!<br>");
-            }
-        }
-        else {
-            array_push($error_array, "Invalid email format!<br>");
+    //check if district is valid
+
+    if(preg_match('/[^A-Za-z0-9]/',$dist)) {
+        array_push($error_array, "District can only contain English characters!<br>");
+    }
+
+    //check if email is in valid format
+    if(filter_var($em, FILTER_VALIDATE_EMAIL)) {
+        $em = filter_var($em, FILTER_VALIDATE_EMAIL);
+
+        //check if email exist
+        $e_check = mysqli_query($con, "SELECT email FROM users WHERE email='$em'");
+        //count the number of rows returned
+        $num_rows = mysqli_num_rows($e_check);
+        if($num_rows > 0) {
+            array_push($error_array, "Email already in use!<br>");
         }
     }
     else {
-        array_push($error_array, "Emails don't match!<br>");
+        array_push($error_array, "Invalid email format!<br>");
     }
+
 
     if(strlen($fname) > 25 || strlen($fname) < 2) {
         array_push($error_array, "First name must be between 2 and 25 characters!<br>");
@@ -101,23 +104,20 @@ if(isset($_POST['register_button'])) {
             $check_username_query = mysqli_query($con, "SELECT username FROM users WHERE username='$username'");
         }
 
-        //Profile picture assignment
-        /*$rand = rand(1,2); //Random number between 1 and 2
-        if($rand == 1) 
-            $profile_pic = "assets/images/profile_pics/defaults/head_deep_blue.png";
-        elseif($rand == 2) 
-            $profile_pic = "assets/images/profile_pics/defaults/head_deep_emerald.png";*/
-        $profile_pic = "assets/images/profile_pics/defaults/user_dp.jpg";
+        $profile_pic = "image/user_dp.jpg";
 
-        $query = mysqli_query($con, "INSERT INTO users VALUES('','$fname','$lname','$username','$em', '$password', '$date', '$profile_pic', '0','0', 'no', ',')");
+        $list_count = 0;
+
+        $query = mysqli_query($con, "INSERT INTO users VALUES('','$fname','$lname','$username','$em', '$password', '$date', '$profile_pic', '$dist','$list_count')");
         
         array_push($error_array, "<span style='color:#14C800;' >You're all set! Go ahead and login!</span><br>");
 
         //clear session variables
         $_SESSION['reg_fname'] = "";
         $_SESSION['reg_lname'] = "";
+        $_SESSION['reg_dist'] = "";
         $_SESSION['reg_email'] = "";
-        $_SESSION['reg_email2'] = "";
+        
     }
 }
 
