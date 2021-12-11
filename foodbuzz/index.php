@@ -10,7 +10,7 @@ require 'handlers/login_handler.php';
 
 <head>
     <title>Food Buzz</title>
-    <link rel ="stylesheet" type="text/css" href="css/introStyle.css">
+    <link rel ="stylesheet" type="text/css" href="css/indexStyle.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="script/indexScript.js"></script>
 </head>
