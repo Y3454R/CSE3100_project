@@ -1,17 +1,6 @@
 <?php
-
-require 'config/config.php';
-if(isset($_SESSION['username'])){
-    $userLoggedIn = $_SESSION['username'];
-    $user_details_query = mysqli_query($con, "SELECT * FROM users WHERE username='$userLoggedIn'");
-    $user = mysqli_fetch_array($user_details_query);
-    // echo"<pre>";
-    // print_r($user);
-    // echo"</pre>";
-}
-else {
-    header("Location: index.php");
-}
+//form handler
+require 'handlers/review_handler.php';
 
 ?>
 
@@ -41,7 +30,7 @@ else {
 <h3 style="text-align:center; color:#1abc9c">Create A Review</h3>
 
 <div class="container">
-  <form action="/action_page.php">
+  <form action="addreview.php" method="POST">
     <!-- item name -->
     <label for="item_name">Item Name</label>
     <input type="text" id="item_name" name="item_name" placeholder="What you ate..">
@@ -95,7 +84,7 @@ else {
     <label for="review_description">Subject</label>
     <textarea id="review_description" name="review_description" placeholder="What do you think.." style="height:200px"></textarea>
 
-    <input type="submit" value="Publish">
+    <input type="submit" name="publish_review" value="Publish">
   </form>
 </div>
 
