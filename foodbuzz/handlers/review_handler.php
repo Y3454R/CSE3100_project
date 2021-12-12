@@ -5,18 +5,11 @@ if(isset($_SESSION['username'])){
     $userLoggedIn = $_SESSION['username'];
     $user_details_query = mysqli_query($con, "SELECT * FROM users WHERE username='$userLoggedIn'");
     $user = mysqli_fetch_array($user_details_query);
-    
-    // test
-    // echo "<pre>";
-    // print_r($user);                 // comment kore dite hobe pore
-    // echo "</pre>";
-
 }
 else {
     header("Location: index.php");
 }
 
-// $query = mysqli_query($con, "INSERT INTO users VALUES('','$fname','$lname','$username','$em', '$password', '$date', '$profile_pic', '$dist','$list_count')");
 
 // variable keeping data from review form and to insert in review table
 $user_id = $user['id'];
@@ -33,8 +26,6 @@ $upvote = 0;
 $downvote = 0;
 $comment_count = 0;
 $review_time = "";
-
-
 
 if(isset($_POST['publish_review']) && isset($_FILES['review_image'])) {
     /*
@@ -63,11 +54,6 @@ if(isset($_POST['publish_review']) && isset($_FILES['review_image'])) {
             $new_img_name = uniqid("REVIMG-",true).'.'.$img_ex_lc;
             $img_upload_path = 'uploads/'.$new_img_name;
             move_uploaded_file($tmp_name, $img_upload_path);
-
-            //insert into database
-            // $sql = "INSERT INTO images(img_url) VALUES('$new_img_name')";
-            // mysqli_query($conn, $sql);
-            // header("Location: view.php");
         }
         else {
             $er_msg = "unknown extension";

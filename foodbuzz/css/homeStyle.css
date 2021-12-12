@@ -174,3 +174,12 @@ body {
 h1,h2,h3,h4,h5 {
     text-transform: capitalize;
 }
+
+a:link,:visited {
+    text-decoration: none;
+    color:#1abc9c;
+}
+
+a:hover {
+    color:#555555;
+}

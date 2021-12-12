@@ -10,19 +10,97 @@ include ("header.php");
   <?php
     $sql = "SELECT * FROM review ORDER BY review_id DESC";
     $data_query = mysqli_query($con, $sql);
-  ?>
-
-  <?php
+  
     if(mysqli_num_rows($data_query) > 0) {
-      $num_iterations = 0; //number of results checked (not necessarily posted)
-      $count = 1;
-      while($row = mysqli_fetch_array($data_query)) { ?>
+
+      // $num_iterations = 0; //number of results checked (not necessarily posted)
+      // $count = 1;
+
+      while($row = mysqli_fetch_array($data_query)) {
+
+        $reviewerId = $row['user_id'];
+        $date_time = $row['review_time'];
+        //echo $date_time."<br>";
+        
+        $reviwer_query = mysqli_query($con, "SELECT username FROM users WHERE id='$reviewerId'");
+        $reviewer_row = mysqli_fetch_array($reviwer_query);
+        $reviewer_username = $reviewer_row['username'];
+
+        //timeframe
+        $date_time_now = date("Y-m-d H:i:s");
+        $start_date= new DateTime($date_time); //time of post
+        $end_date = new DateTime($date_time_now); //current time
+        $interval = $start_date->diff($end_date); //difference between dates
+        if($interval->y >= 1) {
+            if($interval == 1)
+                $time_message = $interval->y." year ago"; // 1year ago
+            else
+                $time_message = $interval->y." years ago"; // 1+ years ago
+        }
+        elseif($interval->m >= 1) {
+            if($interval->d == 0) {
+                $days = " ago";
+            }
+            elseif($interval->d == 1) {
+                $days = $interval->d." day ago";
+            }
+            else {
+                $days = $interval->d. " days ago";
+            }
+
+            if($interval->m == 1) {
+                $time_message = $interval->m. " month".$days;
+            }
+            else {
+                $time_message = $interval->m. " months".$days;
+            }
+
+        }
+
+        elseif($interval->d >= 1) {
+            if($interval->d == 1) {
+                $time_message = "Yesterday";
+            }
+            else {
+                $time_message = $interval->d. " days ago";
+            }
+        }
+        elseif($interval->h >= 1) {
+            if($interval->h == 1) {
+                $time_message = $interval->h." hour ago";
+            }
+            else {
+                $time_message = $interval->h." hours ago";
+            }
+        }
+        elseif($interval->i >= 1) {
+            if($interval->i == 1) {
+                $time_message = $interval->i." minute ago";
+            }
+            else {
+                $time_message = $interval->i." minutes ago";
+            }
+        }
+        else {
+            if($interval->s < 30) {
+                $time_message = "Just now";
+            }
+            else {
+                $time_message = $interval->s." seconds ago";
+            }
+        }
+        /* time frame ends */
+
+  ?>
 
     <div class="card">
       
         <!-- info starts -->
         <h2> <?php echo $row['item_name']." (".$row['restaurant'].")" ?> </h2>
-        <h5>Reviewer: <?php echo $row['user_id']; ?> </h5>
+        <p><?php echo $time_message ?></p>
+
+        <h5>Reviewer: <a href="viewprofile.php"> <?php echo $reviewer_username; ?> </a>  </h5>   <!-- profile er link href diye pathaite hobe viewprofile.php te -->
+        
         <h5>Rating: <?php echo $row['rating']; ?>/5</h5>
         <!-- <h5>Date: 12/12/21</h5> -->
         <h5>Meal Type: <?php echo $row['meal_type'];?> </h5>
