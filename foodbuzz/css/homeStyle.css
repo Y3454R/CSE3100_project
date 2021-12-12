@@ -144,3 +144,29 @@ body {
     padding-right: 10px; /*to stop overflow the exit button*/
     width: 100%;
 }
+
+/*button*/
+.buttonStyle {
+    background-color:#1abc9c; /* Green */
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 2px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.buttonStyle1 {
+    background-color: white; 
+    color: black; 
+    border: 2px solid #1abc9c;
+}
+
+.buttonStyle1:hover {
+    background-color: #1abc9c;
+    color: white;
+}

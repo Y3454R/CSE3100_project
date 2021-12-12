@@ -51,9 +51,9 @@ include ("header.php");
     
   <div class="rightcolumn">
     <div class="card">
-      <h2>Add Review</h2>
-      <div class="fakeimg"><p>Image</p></div>
-      
+      <div style="width:50%;margin:0 auto">
+        <button class="buttonStyle buttonStyle1" onclick="document.location='addreview.php'">Add Review</button>
+      </div>
     </div>
     <div class="card">
       <h2>Top Menu</h2>
@@ -77,7 +77,6 @@ include ("header.php");
 
 <!-- JS script --> 
 <script src="script/homeScript.js"></script>
-
 
 </body>
 

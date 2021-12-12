@@ -29,9 +29,10 @@ else {
 </div>
 
 <div class="topnav" id="navbar"> <!-- id for sticky navigation bar -->
-  <a href="home.php">Buzz</a>
-  <a href="#">Search</a>
-  <a href="mybuzz.php">My Buzz</a>
+  <a href="home.php">Home</a>
+  <a href="search.php">Search</a>
+  <a href="discuss.php">Discuss</a>
+  <a href="profile.php">Profile</a>
   <a href="handlers/logout.php" style="float:right">Exit</a>
 </div>
 
