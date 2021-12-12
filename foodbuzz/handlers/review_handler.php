@@ -80,10 +80,10 @@ if(isset($_POST['publish_review']) && isset($_FILES['review_image'])) {
     }
     /* image ends */
 
-    $item_name = $_POST['item_name'];
+    $item_name = strtolower($_POST['item_name']);
     $res_name = $_POST['res_name'];
     $district_name = $_POST['district_name'];
-    $rating_point = $_POST['rating_name'];
+    $rating_point = $_POST['rating_point'];
     $price = $_POST['price'];
     $meal_type = $_POST['meal_type'];
     $cuisine_type = $_POST['cuisine_type'];

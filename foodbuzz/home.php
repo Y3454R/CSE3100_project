@@ -5,22 +5,31 @@ include ("header.php");
 <div class="row">
 
   <div class="leftcolumn">
+  
+  <!-- database theke review gula nicchi -->
+  <?php
+    $sql = "SELECT * FROM review ORDER BY review_id DESC";
+    $data_query = mysqli_query($con, $sql);
+  ?>
 
-  <?php for($it = 0; $it < 3; $it++) { ?>
+  <?php
+    if(mysqli_num_rows($data_query) > 0) {
+      $num_iterations = 0; //number of results checked (not necessarily posted)
+      $count = 1;
+      while($row = mysqli_fetch_array($data_query)) { ?>
 
     <div class="card">
       
         <!-- info starts -->
-        <h2>Food Review <?php $number = $it+1; echo "$number" ?> </h2>
-        <h5>Reviewer: Username </h5>
-        <h5>Rating:4/5</h5>
-        <h5>Date: 12/12/21</h5>
-        <h5>Meal Type: Snack</h5>
-        <h5>Taste: Spicy</h5>
+        <h2> <?php echo $row['item_name']." (".$row['restaurant'].")" ?> </h2>
+        <h5>Reviewer: <?php echo $row['user_id']; ?> </h5>
+        <h5>Rating: <?php echo $row['rating']; ?>/5</h5>
+        <!-- <h5>Date: 12/12/21</h5> -->
+        <h5>Meal Type: <?php echo $row['meal_type'];?> </h5>
         <!-- info ends -->
 
         <!-- image starts -->
-        <div class="fakeimg" style="height:200px;"><img class="imageCenter" src="image/burger.jfif"></div>
+        <div class="fakeimg" style="height:200px;"><img class="imageCenter" src="uploads/<?php echo $row['img_url']?>"></div>
         <!-- image ends -->
 
         <!-- description starts -->
@@ -29,7 +38,7 @@ include ("header.php");
         <!-- content paragraph starts-->
         <?php
           /* This text will come from sql server" */
-          $reviewText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta.";
+          $reviewText = $row['description'];
         ?>
         <p class="content">
         <?php echo "$reviewText"; ?>
@@ -46,6 +55,7 @@ include ("header.php");
       </div>
 
     <?php } ?>
+  <?php } ?>
     
  </div>
     

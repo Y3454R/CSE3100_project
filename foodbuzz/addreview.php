@@ -86,7 +86,9 @@ require 'handlers/review_handler.php';
 
     <!-- image -->
     <label for="review_image">Attach a photo (.jpg, .png or .jpeg) </label>
+    <br>
     <input type="file" name="review_image" >
+    <br>
 
     <input type="submit" name="publish_review" value="Publish">
   </form>
