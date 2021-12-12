@@ -33,15 +33,15 @@ require 'handlers/review_handler.php';
   <form action="addreview.php" method="POST">
     <!-- item name -->
     <label for="item_name">Item Name</label>
-    <input type="text" id="item_name" name="item_name" placeholder="What you ate..">
+    <input type="text" id="item_name" name="item_name" placeholder="What you ate.." required>
 
     <!-- restaurant -->
     <label for="res_name">Restaurant</label>
-    <input type="text" id="res_name" name="res_name" placeholder="Where you ate..">
+    <input type="text" id="res_name" name="res_name" placeholder="Where you ate.." required>
 
     <!-- District -->
     <label for="district_name">Location</label>
-    <select id="district_name" name="district_name"> <!-- preselect option must be changed -->
+    <select id="district_name" name="district_name" required> <!-- preselect option must be changed -->
         <option value="dhaka">Dhaka</option>
         <option value="khulna" selected>Khulna </option>
         <option value="rangpur">Rangpur</option>     
@@ -49,16 +49,16 @@ require 'handlers/review_handler.php';
 
     <!-- rating -->
     <label for="rating_point">Rate (within 5) </label>
-    <input type="number" id="rating_point" name="rating_point" placeholder="Rate.." min="1" max="5"> <!-- limit dite hobe jeno >=1 <=5 -->
+    <input type="number" id="rating_point" name="rating_point" placeholder="Rate.." min="1" max="5" required> <!-- limit dite hobe jeno >=1 <=5 -->
 
     <!-- price -->
     <label for="price">Price in BDT (Per unit)</label>
-    <input type="number" id="price" name="price" placeholder="Price.." min="1"> <!-- limit dite hobe jeno > 0 -->
+    <input type="number" id="price" name="price" placeholder="Price.." min="1" required> <!-- limit dite hobe jeno > 0 -->
     <br>
 
     <!-- meal type -->
     <label for="meal_type">Meal</label>
-    <select id="meal_type" name="meal_type"> <!-- preselect option must be changed -->
+    <select id="meal_type" name="meal_type" required> <!-- preselect option must be changed -->
         <option value="breakfast">Breakfast</option>
         <option value="lunch">Lunch</option>
         <option value="snacks" selected>Snacks</option>
@@ -69,7 +69,7 @@ require 'handlers/review_handler.php';
 
     <!-- taste-->
     <label for="cuisine_type">Cuisine</label>
-    <select id="cuisine_type" name="cuisine_type"> <!-- preselect option must be changed -->
+    <select id="cuisine_type" name="cuisine_type" required> <!-- preselect option must be changed -->
         <option value="deshi" selected>Deshi</option>
         <option value="street">Street food</option>
         <option value="fast">Fast food</option>
@@ -82,7 +82,7 @@ require 'handlers/review_handler.php';
 
     <!-- description -->
     <label for="review_description">Subject</label>
-    <textarea id="review_description" name="review_description" placeholder="What do you think.." style="height:200px"></textarea>
+    <textarea id="review_description" name="review_description" placeholder="What do you think.." style="height:200px" required></textarea>
 
     <input type="submit" name="publish_review" value="Publish">
   </form>
