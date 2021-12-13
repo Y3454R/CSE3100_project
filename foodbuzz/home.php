@@ -111,20 +111,19 @@ include ("header.php");
   <h5 style="text-transform:none;">Reviewer: <a href="profile.php?profileId=<?php echo$reviewerId ?>"> <?php echo $reviewer_username; ?> </a>  </h5>
   <p><?php echo $time_message ?></p>
 
-  <div class="div_home clearfix">
+  <div class="div_home clearfix description">
     
-    <img class="img_home" src="uploads/<?php echo $row['img_url']?>" alt="Pineapple" width="170" height="170">
-    <div class="description">
-      <p class="content">
-        <?php
-          /* This text will come from sql server" */
-          $reviewText = $row['description'];
-          echo "$reviewText";
-        ?>
-      </p>
+    <img class="img_home" src="uploads/<?php echo $row['img_url']?>" width="170" height="170">
+    <p style="text-align:justify;" class="content">
+      <?php
+        /* This text will come from sql server" */
+        $reviewText = $row['description'];
+        echo "$reviewText";
+      ?>
+    </p>
+    
       <!-- read more button -->
-      <button onclick="readMore(this)">Read More</button>
-    </div>
+    <button onclick="readMore(this)">Read More</button>
 
   </div>
   <div><br></div>
