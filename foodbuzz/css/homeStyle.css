@@ -167,13 +167,14 @@ a:hover {
 /* post er box gular jonno shuru */
 
 .div_home {
+    background-color: white;
     border: 3px solid #1abc9c;
     padding: 15px;                             /* image ar etay same padding thakte hobe */
 }
 
 
 .img_home {
-    float: right;
+    float: left;
     padding: 15px;
 }
 
