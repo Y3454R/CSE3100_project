@@ -98,44 +98,30 @@ include ("header.php");
 
   ?>
 
-    <div class="card">
-      
-        <!-- info starts -->
-        <h2> <?php echo $row['item_name']." (".$row['restaurant'].")" ?> </h2>
-        <p><?php echo $time_message ?></p>
-        <h5 style="text-transform:none;">Reviewer: <a href="profile.php?profileId=<?php echo$reviewerId ?>"> <?php echo $reviewer_username; ?> </a>  </h5>   <!-- profile er link href diye pathaite hobe viewprofile.php te -->
-        <h5>Rating: <?php echo $row['rating']; ?>/5</h5>
-        <?php /*echo $row['meal_type']; */ ?>
-        <!-- info ends -->
+  <h2 style="clear:right"><?php echo $row['item_name']." (".$row['restaurant'].")" ?></h2>
+  <h5 style="text-transform:none;">Reviewer: <a href="profile.php?profileId=<?php echo$reviewerId ?>"> <?php echo $reviewer_username; ?> </a>  </h5>
+  <p><?php echo $time_message ?></p>
 
-        <!-- image starts -->
-        <div class="postimg" style="height:200px;"><img class="imageCenter" src="uploads/<?php echo $row['img_url']?>"></div>
-        <!-- image ends -->
-
-        <!-- description starts -->
-        <div class="description">
-
-        <!-- content paragraph starts-->
+  <div class="div_home clearfix">
+    
+    <img class="img_home" src="uploads/<?php echo $row['img_url']?>" alt="Pineapple" width="170" height="170">
+    <div class="description">
+      <p class="content">
         <?php
           /* This text will come from sql server" */
           $reviewText = $row['description'];
+          echo "$reviewText";
         ?>
-        <p class="content">
-        <?php echo "$reviewText"; ?>
-        </p>
-        <!-- content paragraph ends-->
+      </p>
+      <!-- read more button -->
+      <button onclick="readMore(this)">Read More</button>
+    </div>
 
-        <!-- read more button -->
-        <button onclick="readMore(this)">Read More</button>
+  </div>
+  <div><br></div>
 
-        </div>
-        <!-- description ends -->
-        <!-- <div><h2>like</h2></div> -->
-      
-      </div>
-
-    <?php } ?>
-  <?php } ?>
+  <?php } } ?>
+  
     
  </div>
     
@@ -145,6 +131,7 @@ include ("header.php");
         <button class="buttonStyle buttonStyle1" onclick="document.location='addreview.php'">Add Review</button>
       </div>
     </div>
+
     <div class="card">
       <h2>Top Menu</h2>
       <div class="postimg" style="height:100px;">Image</div>
@@ -152,17 +139,21 @@ include ("header.php");
       <div class="postimg" style="height:100px;">Image</div>
       <div class="postimg" style="height:100px;">Image</div>
     </div>
+
     <div class="card">
       <h2>Bucket List</h2>
       <div class="postimg"><p>Image</p></div>
       <div class="postimg"><p>Image</p></div>
       <div class="postimg"><p>Image</p></div>
     </div>
+
     <div class="card">
       <h5>Follow Me</h5>
       <p>Some text..</p>
     </div>
+
   </div>
+  
 </div>
 
 <!-- JS script --> 
