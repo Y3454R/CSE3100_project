@@ -59,7 +59,7 @@ else {
         <!-- imagegular size shoman hocche naaaaaaaaaaaaaaaa!!!! -->
         <div class="gallery">
             <a target="_blank" href="uploads/<?php echo $review_list['img_url']; ?>">
-                <img src="uploads/<?php echo$review_list['img_url']; ?>" width="600" height="400" >
+                <img src="uploads/<?php echo$review_list['img_url']; ?>" width="400" height="400" >
             </a>
             <div class="desc"><a href="full_review.php"> <h4 style="text-transform: capitalize;"> <?php echo $review_list['item_name']." (".$review_list['restaurant'].")" ?> </h4> </a></div>
         </div>

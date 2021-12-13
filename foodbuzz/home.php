@@ -105,7 +105,7 @@ include ("header.php");
         <p><?php echo $time_message ?></p>
         <h5 style="text-transform:none;">Reviewer: <a href="profile.php?profileId=<?php echo$reviewerId ?>"> <?php echo $reviewer_username; ?> </a>  </h5>   <!-- profile er link href diye pathaite hobe viewprofile.php te -->
         <h5>Rating: <?php echo $row['rating']; ?>/5</h5>
-        <h5>Meal Type: <?php echo $row['meal_type'];?> </h5>
+        <?php /*echo $row['meal_type']; */ ?>
         <!-- info ends -->
 
         <!-- image starts -->

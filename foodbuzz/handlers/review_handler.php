@@ -75,7 +75,7 @@ if(isset($_POST['publish_review']) && isset($_FILES['review_image'])) {
     $cuisine_type = $_POST['cuisine_type'];
     $review_text = $_POST['review_text'];
     $review_image = $new_img_name;
-    $review_time = date("Y-m-d h:i:s");
+    $review_time = date("Y-m-d H:i:s");
 
     // insert into review table
     $sql = "INSERT INTO review VALUES(
