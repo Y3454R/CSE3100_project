@@ -32,7 +32,7 @@ else {
   <a href="home.php">Home</a>
   <a href="search.php">Search</a>
   <a href="discuss.php">Discuss</a>
-  <a href="profile.php">Profile</a>
+  <a href="profile.php?profileId=<?php echo$user['id']; ?>">Profile</a>
   <a href="handlers/logout.php" style="float:right">Exit</a>
 </div>
 

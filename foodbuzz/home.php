@@ -28,7 +28,7 @@ include ("header.php");
 
         //timeframe
         $date_time_now = date("Y-m-d H:i:s");
-        $start_date= new DateTime($date_time); //time of post
+        $start_date= new DateTime($date_time); //time of post    // sql diye nite hobeeeeeeee..................
         $end_date = new DateTime($date_time_now); //current time
         $interval = $start_date->diff($end_date); //difference between dates
         if($interval->y >= 1) {
@@ -99,7 +99,7 @@ include ("header.php");
         <h2> <?php echo $row['item_name']." (".$row['restaurant'].")" ?> </h2>
         <p><?php echo $time_message ?></p>
 
-        <h5>Reviewer: <a href="viewprofile.php"> <?php echo $reviewer_username; ?> </a>  </h5>   <!-- profile er link href diye pathaite hobe viewprofile.php te -->
+        <h5 style="text-transform:none;">Reviewer: <a href="profile.php?profileId=<?php echo$reviewerId ?>"> <?php echo $reviewer_username; ?> </a>  </h5>   <!-- profile er link href diye pathaite hobe viewprofile.php te -->
         
         <h5>Rating: <?php echo $row['rating']; ?>/5</h5>
         <!-- <h5>Date: 12/12/21</h5> -->

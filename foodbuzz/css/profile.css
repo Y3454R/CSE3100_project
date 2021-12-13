@@ -1,5 +1,3 @@
-/* ref: https://www.w3schools.com/css/css_website_layout.asp */
-
 * {
     box-sizing: border-box;
 }
@@ -60,32 +58,6 @@ body {
     padding-left: 20px;
 }
 
-/* Fake image */
-.fakeimg {
-/*background-color: #aaa;*/
-    width: 100%;
-    padding: 20px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.imageCenter {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-
-    width: 300px;
-    height: 200px;
-    padding: 15px;
-}
-
-/* Add a card effect for articles */
-.card {
-    background-color: white;
-    padding: 20px;
-    margin-top: 20px;
-}
 
 /* Clear floats after the columns */
 .row:after {
@@ -98,7 +70,7 @@ body {
 
 /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 800px) {
-    .leftcolumn, .rightcolumn {   
+    .leftcolumn, .rightcolumn, .card {   
         width: 100%;
         padding: 0;
     }
@@ -112,74 +84,39 @@ body {
     }
 }
 
-/* for read more, read less */
-.description {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-.description p{
-    font-size: 16px;
-    text-align: justify;
-}
-.description button {
-    background-color: #555555;
-    border: none;
-    color: white;
-    padding: 10px 20px;
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    padding: 50px;
+    margin: auto;
     text-align: center;
-    text-decoration: none;
+    font-family: arial;
+  }
+  
+  .title {
+    color: grey;
+    font-size: 18px;
+  }
+  
+  button {
+    border: none;
+    outline: 0;
     display: inline-block;
-    font-size: 12px;
-    margin: 4px 2px;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
     cursor: pointer;
-}
-
-.hide {
-    display: none;
-}
-
-/* for sticky nav bar */
-.sticky {
-    position: fixed;
-    top: 0;
-    padding-right: 10px; /*to stop overflow the exit button*/
     width: 100%;
-}
-
-/*button*/
-.buttonStyle {
-    background-color:#1abc9c; /* Green */
-    border: none;
-    color: white;
-    padding: 16px 32px;
-    text-align: center;
+    font-size: 18px;
+  }
+  
+  a {
     text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 2px 2px;
-    transition-duration: 0.4s;
-    cursor: pointer;
-}
-
-.buttonStyle1 {
-    background-color: #1abc9c; 
-    color: white; 
-    border: 1px solid #1abc9c;
-}
-
-.buttonStyle1:hover {
-    background-color: white;
+    /* font-size: 22px; */
     color: black;
-}
-
-h1,h2,h3,h4,h5 {
-    text-transform: capitalize;
-}
-
-a:link,:visited {
-    text-decoration: none;
-    color:#1abc9c;
-}
-
-a:hover {
-    color:#555555;
-}
+  }
+  
+  button:hover, a:hover {
+    opacity: 0.7;
+  }
