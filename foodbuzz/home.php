@@ -1,5 +1,6 @@
 <?php
 include ("header.php");
+//ref of newsfeed: https://www.w3schools.com/css/tryit.asp?filename=trycss_layout_clearfix
 ?>
 
 <div class="row">
@@ -99,6 +100,14 @@ include ("header.php");
   ?>
 
   <h2 style="clear:right"><?php echo $row['item_name']." (".$row['restaurant'].")" ?></h2>
+  <!-- star rating dekhanor jonno shuru -->
+  <?php $star_value = $row['rating']; ?>
+  <span class="fa fa-star <?php if($star_value >= 1) echo "checked"; ?>"></span>
+  <span class="fa fa-star <?php if($star_value >= 2) echo "checked"; ?>"></span>
+  <span class="fa fa-star <?php if($star_value >= 3) echo "checked"; ?>"></span>
+  <span class="fa fa-star <?php if($star_value >= 3) echo "checked"; ?>"></span>
+  <span class="fa fa-star <?php if($star_value >= 5) echo "checked"; ?>"></span>
+  <!-- star rating dekhanor jonno shesh -->
   <h5 style="text-transform:none;">Reviewer: <a href="profile.php?profileId=<?php echo$reviewerId ?>"> <?php echo $reviewer_username; ?> </a>  </h5>
   <p><?php echo $time_message ?></p>
 

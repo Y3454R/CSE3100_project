@@ -201,3 +201,8 @@ a:hover {
 }
 
 /* post er box gular jonno shesh */
+
+/* for star rating */
+.checked {
+    color: orange;
+}
