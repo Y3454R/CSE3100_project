@@ -76,6 +76,9 @@ else {
         <p class="title"><?php echo$wanted_profile['district']; ?></p>
         <p><?php echo$wanted_profile['username'] ?></p>
         <?php if($user['id'] == $wanted_profile['id']) echo "<p><button>Change Profile Picture</button></p>" ?> <!-- change profile picture -->
+        <?php if($user['id'] == $wanted_profile['id']) {?>
+            <a href="addreview.php"><?php echo"<p><button>Create Review</button></p>"; ?></a> 
+        <?php } ?> 
         </div>
         
     </div>
