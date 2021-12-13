@@ -48,7 +48,23 @@ else {
 <div class="row">
 
     <div class = "leftcolumn">
-        <p></p>
+
+    <?php
+        //echo "<pre>";print_r($wanted_profile);echo"</pre>";
+        $wanted_profile_id = $wanted_profile['id'];
+        $review_query = mysqli_query($con, "SELECT * FROM review WHERE user_id='$wanted_profile_id' ORDER BY review_id DESC");
+        while($review_list = mysqli_fetch_array($review_query)) {
+            //echo "<pre>";print_r($review_list);echo"</pre>";  
+    ?>
+        <!-- imagegular size shoman hocche naaaaaaaaaaaaaaaa!!!! -->
+        <div class="gallery">
+            <a target="_blank" href="uploads/<?php echo $review_list['img_url']; ?>">
+                <img src="uploads/<?php echo$review_list['img_url']; ?>" width="600" height="400" >
+            </a>
+            <div class="desc"><a href="full_review.php"> <h4 style="text-transform: capitalize;"> <?php echo $review_list['item_name']." (".$review_list['restaurant'].")" ?> </h4> </a></div>
+        </div>
+    <?php } ?>
+
     </div>
 
     
