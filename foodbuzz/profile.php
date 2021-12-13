@@ -9,13 +9,7 @@ else {
     header("Location: index.php");
 }
 
-// echo "<pre>";
-// print_r($user);
-// echo "</pre>";
-
-// echo $_GET['profileId'];
-
-$profileId = $_GET['profileId'];
+$profileId = $_GET['profileId']; // link theke profileId er value ta nicchi ekhane
 
 if($profileId == $user['id']) {
     $wanted_profile = $user;

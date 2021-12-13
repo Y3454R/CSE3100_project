@@ -60,9 +60,9 @@ body {
     padding-left: 20px;
 }
 
-/* Fake image */
-.fakeimg {
-/*background-color: #aaa;*/
+/* post image */
+.postimg {
+    /*background-color: #aaa;*/
     width: 100%;
     padding: 20px;
     display: block;

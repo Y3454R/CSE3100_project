@@ -12,7 +12,6 @@ contents.forEach(content => {
     let displayText = content.textContent.slice(0, noOfChars);
     let moreText = content.textContent.slice(noOfChars);
     content.innerHTML = `${displayText}<span class="dots">...</span><span class="hide more">${moreText}</span>`;
-
   }
 });
 
