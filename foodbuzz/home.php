@@ -126,7 +126,39 @@ include ("header.php");
     <button onclick="readMore(this)">Read More</button>
 
   </div>
-  <div><br></div>
+  <!-- adding like unlike -->
+  <div><br></div> <!-- padding diye change kora zay kina dekhte hobe -->
+  <!-- like dislike option er jonno -->
+  <div>
+  <!-- like er jonno -->
+  <i 
+    <?php if(userLiked($row['review_id'])): ?>
+      class="fa fa-thumbs-up like-btn"
+    <?php else: ?>
+      class="fa fa-thumbs-o-up like-btn"
+    <?php endif ?> 
+  data-id="<?php echo $row['review_id'] ?>"></i>
+
+  <span class="likes"><?php echo getLikes($row['review_id']); ?></span>
+  
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+  <!-- dislike er jonno -->
+  <i
+    <?php if(userDisliked($row['review_id'])): ?>
+      class="fa fa-thumbs-down dislike-btn"
+    <?php else: ?> 
+      class="fa fa-thumbs-o-down dislike-btn"
+    <?php endif ?>
+  data-id="<?php echo $row['review_id'] ?>"></i>
+  <span class="dislikes"><?php echo getDislikes($row['review_id']);?></span>
+
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+  <!-- comment er jonno -->
+  <a href="full_review.php" ><i class="fa fa-comments-o" aria-hidden="true"  style="font-size:1.5em"></i></a>
+  
+  </div>
 
   <?php } } ?>
   
@@ -166,6 +198,7 @@ include ("header.php");
 
 <!-- JS script --> 
 <script src="script/homeScript.js"></script>
+<script src="script/like.js"></script>
 
 </body>
 

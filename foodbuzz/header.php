@@ -1,6 +1,7 @@
 <?php
 
 require 'config/config.php';
+require 'handlers/like_handler.php'; // for handling like dislike
 if(isset($_SESSION['username'])){
     $userLoggedIn = $_SESSION['username'];
     $user_details_query = mysqli_query($con, "SELECT * FROM users WHERE username='$userLoggedIn'");
@@ -17,10 +18,17 @@ else {
 <html>
 
 <head>
-<!-- css link -->
-<link rel="stylesheet" href="css/homeStyle.css">
+
 <!-- Font Awesome Icon Library -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- add jquery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+<!-- css link -->
+<link rel="stylesheet" href="css/homeStyle.css">
+
 </head>
 
 <body>
