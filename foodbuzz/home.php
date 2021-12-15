@@ -24,79 +24,6 @@ include ("header.php");
         $reviewer_row = mysqli_fetch_array($reviwer_query);
         $reviewer_username = $reviewer_row['username'];
 
-        //time of post
-        $date_time_now = date("Y-m-d H:i:s");
-        $start_date= new DateTime($date_time); //time of post
-        $end_date = new DateTime($date_time_now); //current time
-        $interval = $start_date->diff($end_date); //difference between dates
-
-        // $end_result = $end_date->format('Y-m-d H:i:s');
-        // $start_result = $start_date->format('Y-m-d H:i:s');
-        // echo $end_result."<br>".$start_result."<br>";
-        // echo $interval->y." ".$interval->m." ".$interval->d." ".$interval->h." ".$interval->i." ".$interval->s."<br>";
-
-        if($interval->y >= 1) {
-            if($interval == 1)
-                $time_message = $interval->y." year ago"; // 1year ago
-            else
-                $time_message = $interval->y." years ago"; // 1+ years ago
-        }
-        elseif($interval->m >= 1) {
-            if($interval->d == 0) {
-                $days = " ago";
-            }
-            elseif($interval->d == 1) {
-                $days = $interval->d." day ago";
-            }
-            else {
-                $days = $interval->d. " days ago";
-            }
-
-            if($interval->m == 1) {
-                $time_message = $interval->m. " month".$days;
-            }
-            else {
-                $time_message = $interval->m. " months".$days;
-            }
-        }
-
-        elseif($interval->d >= 1) {
-            if($interval->d == 1) {
-                $time_message = "Yesterday";
-            }
-            else {
-                $time_message = $interval->d. " days ago";
-            }
-        }
-
-        elseif($interval->h >= 1) {
-            if($interval->h == 1) {
-                $time_message = $interval->h." hour ago";
-            }
-            else {
-                $time_message = $interval->h." hours ago";
-            }
-        }
-
-        elseif($interval->i >= 1) {
-            if($interval->i == 1) {
-                $time_message = $interval->i." minute ago";
-            }
-            else {
-                $time_message = $interval->i." minutes ago";
-            }
-        }
-
-        else {
-            if($interval->s < 30) {
-                $time_message = "Just now";
-            }
-            else {
-                $time_message = $interval->s." seconds ago";
-            }
-        }
-        /* time ends */
-
   ?>
 
   <h2 style="clear:right"><?php echo $row['item_name']." (".$row['restaurant'].")" ?></h2>
@@ -109,7 +36,7 @@ include ("header.php");
   <span class="fa fa-star <?php if($star_value >= 5) echo "checked"; ?>"></span>
   <!-- star rating dekhanor jonno shesh -->
   <h5 style="text-transform:none;">Reviewer: <a href="profile.php?profileId=<?php echo$reviewerId ?>"> <?php echo $reviewer_username; ?> </a>  </h5>
-  <p><?php echo $time_message ?></p>
+  <p><?php  echo yeasarTimeMessage($date_time); ?></p>
 
   <div class="div_home clearfix description">
     
@@ -156,7 +83,8 @@ include ("header.php");
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
   <!-- comment er jonno -->
-  <a href="full_review.php" ><i class="fa fa-comments-o" aria-hidden="true"  style="font-size:1.5em"></i></a>
+  <?php $review_id = $row['review_id']; ?>
+  <a href="full_review.php?review_id=<?php echo $review_id; ?>" ><i class="fa fa-comments-o" aria-hidden="true"  style="font-size:1.5em"></i></a>
   
   </div>
 

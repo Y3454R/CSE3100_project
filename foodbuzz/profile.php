@@ -57,7 +57,7 @@
             while($review_list = mysqli_fetch_array($review_query)) {
                 //echo "<pre>";print_r($review_list);echo"</pre>";  
         ?>
-            <a href="full_review.php"><img class="img_gallery" src="uploads/<?php echo$review_list['img_url']; ?>" width="170" height="170"></a>
+            <a href="full_review.php?review_id=<?php echo $review_list['review_id']; ?>"><img class="img_gallery" src="uploads/<?php echo$review_list['img_url']; ?>" width="170" height="170"></a>
 
         <?php } ?>
 
