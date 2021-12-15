@@ -1,0 +1,200 @@
+/* ref: https://www.w3schools.com/css/css_website_layout.asp */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial;
+    padding: 10px;
+    background: #f1f1f1;
+}
+
+/* Header/Blog Title */
+.header {
+    padding: 5px;
+    text-align: center;
+    background: #1abc9c;
+}
+  
+.header h1 {
+    font-size: 50px;
+    color: white;
+}
+  
+/* Style the top navigation bar */
+.topnav {
+    overflow: hidden;
+    background-color: #333;
+}
+  
+/* Style the topnav links */
+.topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Create two unequal columns that floats next to each other */
+
+/* Left column */
+.leftcolumn {   
+    float: left;
+    width: 75%;
+}
+
+/* Right column */
+.rightcolumn {
+    float: left;
+    width: 25%;
+    background-color: #f1f1f1;
+    padding-left: 20px;
+}
+
+
+
+/* Add a card effect for articles */
+.card {
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+    .leftcolumn, .rightcolumn {   
+        width: 100%;
+        padding: 0;
+    }
+}
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+    .topnav a {
+        float: none;
+        width: 100%;
+    }
+}
+
+/* for read more, read less */
+/* .description {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+} */
+
+.description button {
+    background-color: #555555;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.hide {
+    display: none;
+}
+
+/* for sticky nav bar */
+.sticky {
+    position: fixed;
+    top: 0;
+    padding-right: 10px; /*to stop overflow the exit button*/
+    width: 100%;
+}
+
+/*button*/
+.buttonStyle {
+    background-color:#1abc9c; /* Green */
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 2px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.buttonStyle1 {
+    background-color: #1abc9c; 
+    color: white; 
+    border: 1px solid #1abc9c;
+}
+
+.buttonStyle1:hover {
+    background-color: white;
+    color: black;
+}
+
+h1,h2,h3,h4,h5 {
+    text-transform: capitalize;
+}
+
+a:link,:visited {
+    text-decoration: none;
+    color:#1abc9c;
+}
+
+a:hover {
+    color:#555555;
+}
+
+
+/* post er box gular jonno shuru */
+
+.div_home {
+    background-color: white;
+    border: 3px solid #1abc9c;
+    padding: 15px;                             /* image ar etay same padding thakte hobe */
+}
+
+
+.img_home {
+    float: left;
+    padding: 15px;
+}
+
+.clearfix {
+    overflow: auto;
+}
+
+/* post er box gular jonno shesh */
+
+/* for star rating */
+.checked {
+    color: orange;
+}
+
+
+/* for like dislike */
+
+.fa-thumbs-down, .fa-thumbs-o-down, .fa-thumbs-up, .fa-thumbs-o-up {
+    font-size: 1.5em;
+}
+.fa-thumbs-down, .fa-thumbs-o-down {
+    transform:rotateY(180deg);
+}
