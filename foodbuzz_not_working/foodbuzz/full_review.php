@@ -101,7 +101,7 @@ require 'handlers/full_review_handler.php';
 
 
 <div class="container">
-  <form action="full_review.php" method="POST">
+  <form action="full_review.php?review_id=<?php echo $review_row['review_id'];?>" method="POST">
     <textarea id="comment_text" name="comment_text" placeholder="Comment here.." rows="2" ></textarea>
     <input type="submit" name="comment" value="Comment">
   </form>

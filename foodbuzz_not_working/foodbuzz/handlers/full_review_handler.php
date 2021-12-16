@@ -138,7 +138,7 @@ if(isset($_POST['comment'])) {
     $comment_text = $_POST['comment_text'];
     $parent_id = 0;
     $q = "INSERT INTO comments VALUES('', '$parent_id', '$review_id', '$user_id', '$comment_time', '$comment_text')";
-    mysqli_query($con, $sql);
+    mysqli_query($con, $q);
     header("Location: full_review.php?review_id=$review_id");
 }
 
