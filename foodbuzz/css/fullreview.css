@@ -65,7 +65,9 @@ a:hover {
 .fa-thumbs-down, .fa-thumbs-o-down {
     transform:rotateY(180deg);
 }
-
+.fa-edit {
+    font-size: 3em;
+}
 .container {
   border-radius: 5px;
   background-color: #ffff;

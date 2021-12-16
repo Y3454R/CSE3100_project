@@ -41,6 +41,7 @@ require 'handlers/full_review_handler.php';
 
 <div class="div_home clearfix" style="text-transform:capitalize">
     <h3>Item name: <?php echo $review_row['item_name'] ?></h3>
+    <h3> <?php echo $review_row['cuisine']." ".$review_row['meal_type'] ?></h3>
     <h3>Restaurant: <?php echo $review_row['restaurant'] ?></h3>
     <h3>Price: <?php echo $review_row['price'] ?> BDT (per unit)</h3>
     <?php $star_value = $review_row['rating']; ?>
@@ -52,6 +53,9 @@ require 'handlers/full_review_handler.php';
     <h3 style="text-transform:none;">Reviewer: <a href="profile.php?profileId=<?php echo $profile_row['id']; ?>"> <?php echo $profile_row['username']; ?> </a>  </h3>
     <p><?php echo yeasarTimeMessage($review_row['review_time']); ?></p>
     <a href="uploads/<?php echo $review_row['img_url']?>"><img class="img_home" src="uploads/<?php echo $review_row['img_url']?>" width="170" height="170"></a>
+    <?php if($review_row['edit_count'] != 0) {?>
+      <p style="font-style:italic">(Edited)</p>
+    <?php } ?>
     <p style="text-align:justify;">
       <?php
         $reviewText = $review_row['description'];
@@ -92,10 +96,17 @@ require 'handlers/full_review_handler.php';
 
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
+    <?php if ($review_row['user_id'] == $user_id) { ?> 
+    <a href="edit_review.php?review_id=<?php echo $review_id ?>"><i class='fa fa-edit fa-lg'></i></a>
+    <?php } ?>
+
+
+
     
     </div>
 
 <!-- ********************************************************************************** -->
+
 
 </div>
 
