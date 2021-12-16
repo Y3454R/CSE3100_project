@@ -93,6 +93,7 @@ require 'handlers/edit.php';
     <input type="file" name="review_image" >
     <br> -->
     <input type="submit" name="edit_review" value="Edit">
+    <input type="submit" name="dlt" value="Delete" style="background-color:red">
 
   </form>
 </div>

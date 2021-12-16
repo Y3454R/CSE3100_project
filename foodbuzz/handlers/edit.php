@@ -112,5 +112,11 @@ if(isset($_POST['edit_review'])) {
 
 }
 
+if(isset($_POST['dlt'])) {
+    $sql = "DELETE FROM review WHERE review_id=$review_id";
+    mysqli_query($con, $sql);
+    header("Location: home.php");
+}
+
 
 ?>
