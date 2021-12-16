@@ -1,7 +1,7 @@
 <?php
 
 require 'handlers/full_review_handler.php';
-
+// require 'handlers/comment_h.php';
 ?>
 
 
@@ -18,42 +18,7 @@ require 'handlers/full_review_handler.php';
 
 <link rel="stylesheet" href="css/fullreview.css">
 <style>
-.checked {
-    color: orange;
-}
-a:link,:visited {
-    text-decoration: none;
-    color:#1abc9c;
-}
 
-a:hover {
-    color:#555555;
-}
-
-.div_home {
-    background-color: white;
-    /* border: 3px solid #1abc9c; */
-    padding: 15px;                             /* image ar etay same padding thakte hobe */
-}
-
-
-.img_home {
-    float: left;
-    padding: 15px;
-}
-
-.clearfix {
-    overflow: auto;
-}
-
-/* for like dislike */
-
-.fa-thumbs-down, .fa-thumbs-o-down, .fa-thumbs-up, .fa-thumbs-o-up {
-    font-size: 1.5em;
-}
-.fa-thumbs-down, .fa-thumbs-o-down {
-    transform:rotateY(180deg);
-}
 
 
 </style>
@@ -136,13 +101,31 @@ a:hover {
 
 
 <div class="container">
-  <form action="full_review.php" method="POST" enctype="multipart/form-data">
-    <!-- description -->
-    <textarea id="review_text" name="review_text" placeholder="Comment here.." rows="2" ></textarea>
-
-    <input type="submit" name="publish_review" value="Publish">
+  <form action="full_review.php?review_id=<?php echo $review_row['review_id'];?>" method="POST">
+    <textarea id="comment_text" name="comment_text" placeholder="Comment here.." rows="2" ></textarea>
+    <input type="submit" name="comment" value="Comment">
   </form>
 </div>
+
+<?php
+$comments_query = mysqli_query($con, "SELECT * FROM comments WHERE review_id='$review_id' ORDER BY comment_id DESC");
+// $comment_row = mysqli_fetch_array($comments_query);
+while($comment_row = mysqli_fetch_array($comments_query)) {
+  $commenter_id = $comment_row['profile_id'];
+  $commenter_query = mysqli_query($con, "SELECT username FROM users WHERE id='$commenter_id'");
+  $commenter_row = mysqli_fetch_array($commenter_query);
+?>
+
+<div class="div_comment">
+<h4 style="text-transform:none;"><a href="profile.php?profileId=<?php echo $commenter_id; ?>"> <?php echo $commenter_row['username']; ?> </a>  </h4>
+<h6 style="font-style:italic;"><?php echo yeasarTimeMessage($comment_row['comment_time']); ?></h6>
+<p><?php echo $comment_row['comment_text']; ?></p>
+</div>
+&nbsp;
+
+<?php
+}
+?>
 
 <!-- JS script --> 
 <script src="script/sticky.js"></script>

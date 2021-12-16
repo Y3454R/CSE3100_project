@@ -25,32 +25,46 @@ input[type=submit]:hover {
   background-color: #000000;
 }
 
-/* to bring in center */
-/* input[type="file"], .submit, .box 
-{
-    width: 300px; 
-    display: block;
-    margin: 0 auto;
+.checked {
+    color: orange;
 }
-input[type="submit"], .submit, .box 
-{
-    width: 300px; 
-    display: block;
-    margin: 0 auto;
-}
-input[type="text"], .submit, .box 
-{
-    width: 300px; 
-    display: block;
-    margin: 0 auto;
+a:link,:visited {
+    text-decoration: none;
+    color:#1abc9c;
 }
 
-input[type="number"], .submit, .box 
-{
-    width: 300px; 
-    display: block;
-    margin: 0 auto;
-} */
+a:hover {
+    color:#555555;
+}
+
+.div_home {
+    background-color: white;
+    /* border: 3px solid #1abc9c; */
+    padding: 15px;
+}
+
+
+.img_home {
+    float: left;
+    padding: 15px;
+}
+
+.img_home:hover {
+    opacity: 50%;
+}
+
+.clearfix {
+    overflow: auto;
+}
+
+/* for like dislike */
+
+.fa-thumbs-down, .fa-thumbs-o-down, .fa-thumbs-up, .fa-thumbs-o-up {
+    font-size: 1.5em;
+}
+.fa-thumbs-down, .fa-thumbs-o-down {
+    transform:rotateY(180deg);
+}
 
 .container {
   border-radius: 5px;
@@ -99,5 +113,12 @@ input[type="number"], .submit, .box
     top: 0;
     padding-right: 10px; /*to stop overflow the exit button*/
     width: 100%;
+}
+
+
+.div_comment {
+    background-color: white;
+    border: 3px solid #1abc9c;
+    padding: 15px;
 }
 

@@ -35,9 +35,9 @@ if(isset($_POST['publish_review']) && isset($_FILES['review_image'])) {
     */
 
     /* image */
-    echo "<pre>";
-    print_r($_FILES['review_image']);
-    echo "</pre>";
+    // echo "<pre>";
+    // print_r($_FILES['review_image']);
+    // echo "</pre>";
 
     $img_name = $_FILES['review_image']['name'];
     $img_size = $_FILES['review_image']['size'];

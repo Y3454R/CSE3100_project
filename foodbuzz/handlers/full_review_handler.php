@@ -15,7 +15,7 @@ else {
 $user_id = $user['id'];
 
 
-if(isset($_POST['action'])) {
+if(isset($_POST['action']) && !isset($_POST['comment'])) {
     $post_id = $_POST['post_id'];
     $action = $_POST['action'];
     
@@ -133,8 +133,13 @@ $profile_row = mysqli_fetch_array($profile_details_query);
 
 // echo "<pre>";print_r($profile_row);echo"</pre>";
 
-
-
-
+if(isset($_POST['comment'])) {
+    $comment_time = date("Y-m-d H:i:s");
+    $comment_text = $_POST['comment_text'];
+    $parent_id = 0;
+    $q = "INSERT INTO comments VALUES('', '$parent_id', '$review_id', '$user_id', '$comment_time', '$comment_text')";
+    mysqli_query($con, $q);
+    header("Location: full_review.php?review_id=$review_id");
+}
 
 ?>
