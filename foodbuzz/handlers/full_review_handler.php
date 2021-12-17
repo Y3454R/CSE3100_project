@@ -139,6 +139,15 @@ if(isset($_POST['comment'])) {
     $parent_id = 0;
     $q = "INSERT INTO comments VALUES('', '$parent_id', '$review_id', '$user_id', '$comment_time', '$comment_text')";
     mysqli_query($con, $q);
+    $reviewer = $review_row['user_id'];
+    $sql = "INSERT INTO notifications VALUES('', '$review_id', '$reviewer', '$comment_time')";
+    mysqli_query($con, $sql);
+    $comment_details_query = mysqli_query($con, "SELECT * FROM comments WHERE review_id='$review_id'");
+    while($comment_row = mysqli_fetch_array($comment_details_query)) {
+        $receiver = $comment_row['profile_id'];
+        $sql = "INSERT INTO notifications VALUES('', '$review_id', '$receiver', '$comment_time')";
+        mysqli_query($con, $sql);
+    }
     header("Location: full_review.php?review_id=$review_id");
 }
 

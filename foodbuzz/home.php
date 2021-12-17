@@ -101,23 +101,22 @@ include ("header.php");
     </div>
 
     <div class="card">
-      <h2>Top Menu</h2>
-      <div class="postimg" style="height:100px;">Image</div>
-      <div class="postimg" style="height:100px;">Image</div>
-      <div class="postimg" style="height:100px;">Image</div>
-      <div class="postimg" style="height:100px;">Image</div>
-    </div>
+      <h2>Notifications</h2>
+      <?php
+        $reciever_id = $user['id'];
+        $notifications_fetch_query = mysqli_query($con, "SELECT * FROM notifications WHERE receiver_id = '$reciever_id'");
+      ?>
+      <ul>
+      <?php
+      while($notification = mysqli_fetch_array($notifications_fetch_query)) {
+      ?>
+        <li><a href="full_review.php?review_id=<?php echo $notification['review_id']; ?>">1 new comment</a></li>
+      <?php } ?>
+      </ul>
+      <form action="home.php" method="POST">
+        <input type="submit" name="clear" value="Clear">
+      </form>
 
-    <div class="card">
-      <h2>Bucket List</h2>
-      <div class="postimg"><p>Image</p></div>
-      <div class="postimg"><p>Image</p></div>
-      <div class="postimg"><p>Image</p></div>
-    </div>
-
-    <div class="card">
-      <h5>Follow Me</h5>
-      <p>Some text..</p>
     </div>
 
   </div>
