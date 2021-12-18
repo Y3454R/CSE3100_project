@@ -87,12 +87,8 @@ require 'handlers/edit.php';
     <label for="review_text">Review</label>
     <textarea id="review_text" name="review_text" style="height:200px"><?php echo $review_row['description']; ?></textarea>
 
-    <!-- image -->
-    <!-- <label for="review_image" >Change the image (.jpg, .png or .jpeg) </label>
-    <br>
-    <input type="file" name="review_image" >
-    <br> -->
     <input type="submit" name="edit_review" value="Edit">
+    
     <input type="submit" name="dlt" value="Delete" style="background-color:red">
 
   </form>

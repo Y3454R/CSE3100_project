@@ -49,8 +49,12 @@ if(isset($_POST['upload']) && isset($_FILES['dp_image'])) {
     /* image ends */
 
     $dp_image = "image/dp/".$new_img_name;
-    echo $dp_image;
-
+    //echo $dp_image;
+    // delete
+    $old_image = $user['profile_pic'];
+    if($old_image != "image/dp/user_dp.jpg") {
+        unlink($old_image);
+    }
     // alter image value of user table
     $user_id = $user['id'];
     $sql ="UPDATE users SET profile_pic='$dp_image' WHERE id=$user_id";

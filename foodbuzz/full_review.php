@@ -98,9 +98,9 @@ require 'handlers/full_review_handler.php';
 
     <?php if ($review_row['user_id'] == $user_id) { ?> 
     <a href="edit_review.php?review_id=<?php echo $review_id ?>"><i class='fa fa-edit fa-lg'></i></a>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href= "review_image.php?review_id=<?php echo $review_id ?>"><button>Change the picture</button></a>
     <?php } ?>
-
-
 
     
     </div>
