@@ -41,7 +41,7 @@ require 'handlers/review_handler.php';
 
     <!-- District -->
     <label for="district_name">Location</label>
-    <select id="district_name" name="district_name" required> <!-- preselect option must be changed -->
+    <select id="district_name" name="district_name" required> 
         <option value="dhaka">Dhaka</option>
         <option value="khulna" selected>Khulna </option>
         <option value="rangpur">Rangpur</option>     
@@ -49,16 +49,16 @@ require 'handlers/review_handler.php';
 
     <!-- rating -->
     <label for="rating_point">Rate (within 5) </label>
-    <input type="number" id="rating_point" name="rating_point"  min="1" max="5" required> <!-- limit dite hobe jeno >=1 <=5 -->
+    <input type="number" id="rating_point" name="rating_point"  min="1" max="5" required>
 
     <!-- price -->
     <label for="price">Price in BDT (Per unit)</label>
-    <input type="number" id="price" name="price" min="1" required> <!-- limit dite hobe jeno > 0 -->
+    <input type="number" id="price" name="price" min="1" required>
     <br>
 
     <!-- meal type -->
     <label for="meal_type">Meal</label>
-    <select id="meal_type" name="meal_type" required > <!-- preselect option must be changed -->
+    <select id="meal_type" name="meal_type" required > 
         <option value="breakfast">Breakfast</option>
         <option value="lunch">Lunch</option>
         <option value="snacks" selected>Snacks</option>
@@ -69,7 +69,7 @@ require 'handlers/review_handler.php';
 
     <!-- what cuisine -->
     <label for="cuisine_type">Cuisine</label>
-    <select id="cuisine_type" name="cuisine_type" required > <!-- preselect option must be changed -->
+    <select id="cuisine_type" name="cuisine_type" required > 
         <option value="deshi" selected>Deshi</option>
         <option value="street">Street food</option>
         <option value="fastfood">Fast food</option>
