@@ -1,7 +1,5 @@
 <?php
-
 require 'handlers/full_review_handler.php';
-// require 'handlers/comment_h.php';
 ?>
 
 
@@ -131,6 +129,12 @@ while($comment_row = mysqli_fetch_array($comments_query)) {
 <h4 style="text-transform:none;"><a href="profile.php?profileId=<?php echo $commenter_id; ?>"> <?php echo $commenter_row['username']; ?> </a>  </h4>
 <h6 style="font-style:italic;"><?php echo yeasarTimeMessage($comment_row['comment_time']); ?></h6>
 <p><?php echo $comment_row['comment_text']; ?></p>
+<?php if($commenter_id == $user_id || $user_id == $review_row['user_id']) {?>
+  <form action="full_review.php?review_id=<?php echo $review_row['review_id'];?>" method="POST">
+      <input type="hidden" name="remove_id" value = "<?php echo $comment_row['comment_id']; ?>">
+      <input type="submit" name="remove_comment" value="Remove" style="background-color:red;">
+  </form>
+<?php } ?>
 </div>
 &nbsp;
 

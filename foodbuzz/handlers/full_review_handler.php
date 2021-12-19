@@ -151,4 +151,11 @@ if(isset($_POST['comment'])) {
     header("Location: full_review.php?review_id=$review_id");
 }
 
+if(isset($_POST['remove_comment'])) {
+    $remove_comment_id = $_POST['remove_id'];
+    $q = "DELETE FROM comments WHERE comment_id = '$remove_comment_id'";
+    mysqli_query($con, $q);
+    header("Location: full_review.php?review_id=$review_id");
+}
+
 ?>
