@@ -46,14 +46,11 @@ if(isset($_POST['register_button'])) {
             <form action="index.php" method="POST">
 
                 <input type="email" name="log_email" placeholder="Email"
-                value="<?php
-                if(isset($_SESSION['log_email'])) {
-                    echo $_SESSION['log_email'];
-                    }
-                ?>" required>
+                value="<?php if(isset($_COOKIE["email"])) { echo $_COOKIE["email"]; } ?>" required>
                 <br>
-                <input type="password" name="log_password" placeholder="Password">
+                <input type="password" name="log_password" placeholder="Password" value="<?php if(isset($_COOKIE["password"])) { echo $_COOKIE["password"]; } ?>">
                 <br>
+                <p><input type="checkbox" name="remember" /> Remember me <br>
                 <input type="submit" name="login_button" value="login">
                 <br>
 
