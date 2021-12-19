@@ -41,31 +41,32 @@ require 'handlers/discuss_handler.php';
 <div class="container">
   <form action="discuss.php" method="POST">
     <label for="topic">Topic</label>
-    <input type="text" placeholder="Topic" name="topic">
+    <input type="text" placeholder="Topic" name="topic" required>
     <label for="quesiton">Question</label>
-    <textarea id="question" name="question" placeholder="Ask a question.." rows="2" ></textarea>
+    <textarea id="question" name="question" placeholder="Ask a question.." rows="2" required></textarea>
     <input type="submit" name="ask" value="ask">
   </form>
 </div>
 
 <?php
-// $comments_query = mysqli_query($con, "SELECT * FROM comments WHERE review_id='$review_id' ORDER BY comment_id DESC");
-// // $comment_row = mysqli_fetch_array($comments_query);
-// while($comment_row = mysqli_fetch_array($comments_query)) {
-//   $commenter_id = $comment_row['profile_id'];
-//   $commenter_query = mysqli_query($con, "SELECT username FROM users WHERE id='$commenter_id'");
-//   $commenter_row = mysqli_fetch_array($commenter_query);
+$discuss_query = mysqli_query($con, "SELECT * FROM discuss ORDER BY d_id DESC");
+while($discuss_row = mysqli_fetch_array($discuss_query)) {
+  $d_writer_id = $discuss_row['d_writer_id'];
+  $writer_query = mysqli_query($con, "SELECT * FROM users WHERE id='$d_writer_id'");
+  $writer_row = mysqli_fetch_array($writer_query);
 ?>
 
-<!-- <div class="div_comment">
-<h4 style="text-transform:none;"><a href="profile.php?profileId=<?php echo $commenter_id; ?>"> <?php echo $commenter_row['username']; ?> </a>  </h4>
-<h6 style="font-style:italic;"><?php echo yeasarTimeMessage($comment_row['comment_time']); ?></h6>
-<p><?php echo $comment_row['comment_text']; ?></p>
+<div class="div_home">
+  <a href="fullthread.php?d_id=<?php echo $discuss_row['d_id']; ?>" target="blank"> <h2>Topic: <?php echo $discuss_row['d_topic']; ?></h2> </a>
+  <h4 style="text-transform:none;">By: <a href="profile.php?profileId=<?php echo $writer_row['id']; ?>"> <?php echo $writer_row['username']; ?> </a>  </h4>
+  <h6 style="font-style:italic;"><?php echo yeasarTimeMessage($discuss_row['d_time']); ?></h6>
+  <p><?php echo $discuss_row['d_text']; ?></p>
+  <a href="fullthread.php?d_id=<?php echo $discuss_row['d_id']; ?>" target="blank"><button>Reply</button></a>
 </div>
-&nbsp; -->
+&nbsp;
 
 <?php
-//}
+}
 ?>
 
 <!-- JS script --> 

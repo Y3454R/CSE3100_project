@@ -12,6 +12,8 @@ if(isset($_POST['clear'])) {
     $receiver_id = $user['id'];
     $sql = "DELETE FROM notifications WHERE receiver_id='$receiver_id'";
     mysqli_query($con, $sql);
+    $sql = "DELETE FROM d_notifications WHERE to_id='$receiver_id'";
+    mysqli_query($con, $sql);
     header("Location: home.php");
 }
 

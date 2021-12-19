@@ -111,14 +111,15 @@ require 'handlers/full_review_handler.php';
 
 <div class="container">
   <form action="full_review.php?review_id=<?php echo $review_row['review_id'];?>" method="POST">
-    <textarea id="comment_text" name="comment_text" placeholder="Comment here.." rows="2" ></textarea>
+    <textarea id="comment_text" name="comment_text" placeholder="Comment here.." rows="2" required></textarea>
     <input type="submit" name="comment" value="Comment">
   </form>
 </div>
 
 <?php
+
 $comments_query = mysqli_query($con, "SELECT * FROM comments WHERE review_id='$review_id' ORDER BY comment_id DESC");
-// $comment_row = mysqli_fetch_array($comments_query);
+
 while($comment_row = mysqli_fetch_array($comments_query)) {
   $commenter_id = $comment_row['profile_id'];
   $commenter_query = mysqli_query($con, "SELECT username FROM users WHERE id='$commenter_id'");
@@ -129,12 +130,14 @@ while($comment_row = mysqli_fetch_array($comments_query)) {
 <h4 style="text-transform:none;"><a href="profile.php?profileId=<?php echo $commenter_id; ?>"> <?php echo $commenter_row['username']; ?> </a>  </h4>
 <h6 style="font-style:italic;"><?php echo yeasarTimeMessage($comment_row['comment_time']); ?></h6>
 <p><?php echo $comment_row['comment_text']; ?></p>
+
 <?php if($commenter_id == $user_id || $user_id == $review_row['user_id']) {?>
   <form action="full_review.php?review_id=<?php echo $review_row['review_id'];?>" method="POST">
       <input type="hidden" name="remove_id" value = "<?php echo $comment_row['comment_id']; ?>">
       <input type="submit" name="remove_comment" value="Remove" style="background-color:red;">
   </form>
 <?php } ?>
+
 </div>
 &nbsp;
 
@@ -142,9 +145,10 @@ while($comment_row = mysqli_fetch_array($comments_query)) {
 }
 ?>
 
-<!-- JS script --> 
+<!-- JS script shuru --> 
 <script src="script/sticky.js"></script>
 <script src="script/full_review.js"></script>
+<!-- JS script shesh --> 
 
 </body>
 </html>

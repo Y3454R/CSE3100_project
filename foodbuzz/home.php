@@ -105,12 +105,20 @@ include ("header.php");
       <?php
         $reciever_id = $user['id'];
         $notifications_fetch_query = mysqli_query($con, "SELECT * FROM notifications WHERE receiver_id = '$reciever_id'");
+        $dnotifications_fetch_query = mysqli_query($con, "SELECT * FROM d_notifications WHERE to_id = '$reciever_id'");
       ?>
       <ul>
       <?php
       while($notification = mysqli_fetch_array($notifications_fetch_query)) {
       ?>
         <li><a href="full_review.php?review_id=<?php echo $notification['review_id']; ?>">1 new comment</a></li>
+      <?php } ?>
+      </ul>
+      <ul>
+      <?php
+      while($dnotification = mysqli_fetch_array($dnotifications_fetch_query)) {
+      ?>
+        <li><a href="fullthread.php?d_id=<?php echo $dnotification['d_id']; ?>">1 new reply</a></li>
       <?php } ?>
       </ul>
       <form action="home.php" method="POST">

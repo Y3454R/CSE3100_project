@@ -120,7 +120,7 @@ a:hover {
 
 .div_comment {
     background-color: white;
-    border: 3px solid #1abc9c;
+    /* border: 3px solid #1abc9c; */
     padding: 15px;
 }
 
