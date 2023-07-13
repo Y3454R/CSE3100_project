@@ -22,8 +22,10 @@ function yeasarTimeMessage($post_time) {
     $end_date = new DateTime($date_time_now); //current time
     $interval = $start_date->diff($end_date); //difference between dates
 
+    //echo typeof($interval);
+
     if($interval->y >= 1) {
-        if($interval == 1)
+        if($interval->y == 1)
             $time_message = $interval->y." year ago"; // 1year ago
         else
             $time_message = $interval->y." years ago"; // 1+ years ago
